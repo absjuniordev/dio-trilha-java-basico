@@ -1,4 +1,6 @@
-package entities;
+package model.entities;
+
+import model.exceptions.DomainException;
 
 public class ContaDIO {
 
@@ -7,7 +9,11 @@ public class ContaDIO {
     private String nome;
     private double saldo;
      
-    public ContaDIO(Integer numero, String agencia, String nome, double saldo) {
+    public ContaDIO(Integer numero, String agencia, String nome, double saldo) throws DomainException{
+        if (saldo <0 ) {
+            throw new DomainException("O valor não pode ser inferiro a R$ 0,00");
+        }       
+        
         this.numero = numero;
         this.agencia = agencia;
         this.nome = nome;
@@ -29,7 +35,7 @@ public class ContaDIO {
     }
     @Override
     public String toString() {
-    return "Olá "+ nome+ ", obrigado por criar uma conta em nosso banco, sua agência é "+ agencia+ ", conta " +numero+ " e seu saldo "+ saldo+ " já está disponível para saque";
+    return "Olá "+ nome+ ", obrigado por criar uma conta em nosso banco, sua agência é "+ agencia+ ", conta " +numero+ " e seu saldo R$"+ String.format("%.2f",saldo)+ " já está disponível para saque";
     }
    
 
