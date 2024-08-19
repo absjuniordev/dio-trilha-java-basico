@@ -12,7 +12,7 @@ public class Program {
 
         try {
             System.out.println("Bem vindo ao banco DIO");
-            System.out.print("Por favor digite o numero da Agência: ");
+            System.out.println("Por favor digite o numero da Agência: ");
             String agencia = sc.nextLine();
             System.out.print("Por favor digite o numero do Usuário: ");
             int numero = sc.nextInt();
